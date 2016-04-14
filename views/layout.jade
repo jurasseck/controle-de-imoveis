@@ -2,7 +2,15 @@ doctype html
 html
   head
     title= title
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    nav(role="navigation").navbar.navbar-default.navbar-fixed-top
+        a(href="/").navbar-brand Mapa do luis
     block content
+    footer.text-center
+        p Desenvolvido por 
+            a(href="mailto:luis.jurasseck@gmail.com") Luís Henrique
+    script(src="https://code.jquery.com/jquery-1.11.3.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous")
     block scripts

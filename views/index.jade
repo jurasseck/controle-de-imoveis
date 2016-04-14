@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  p Aluguel em Campo Mourão
   div#map_wrapper
     div.mapping#googleMap
 
@@ -18,7 +17,8 @@ block scripts
       var map;
       var bounds = new google.maps.LatLngBounds();
       var mapOptions = {
-          mapTypeId: 'roadmap'
+          mapTypeId: 'roadmap',
+          scrollwheel:false
       };
                       
       // Display a map on the page
@@ -50,7 +50,7 @@ block scripts
               map: map,
               title: markers[i][0]
           });
-          
+
           // Allow each marker to have an info window    
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
               return function() {

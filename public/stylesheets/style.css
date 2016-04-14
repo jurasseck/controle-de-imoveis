@@ -1,16 +1,44 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
+  margin-top: 50px !important;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
 #map_wrapper {
-    height: 400px;
+    height: 100vh;
 }
 
 #googleMap {
     width: 100%;
     height: 100%;
+}
+
+.navbar-default{
+	background-color: #1A2F4B;
+	color:#fff;
+	border-bottom: 1px solid #000;
+}
+
+.navbar li a {
+	color: #fff !important;
+}
+
+.navbar a {
+	color: #fff !important;
+}
+
+footer {
+	padding:5px;
+	height: 40px;
+	color: #fff !important;
+	background-color: #1A2F4B;
+}
+
+footer a {
+	color: #fff;
+}
+
+footer a:hover, a:active {
+	color: #fff;
 }
