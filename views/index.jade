@@ -26,16 +26,16 @@ block scripts
       map.setTilt(45);
           
       // Multiple Markers
-      var markers = [
-          ['Faculdade Integrado', -24.0458588,-52.3815836],
-          ['Paraná Supermercados', -24.0455129,-52.3748619]
-      ];
+      var markers= !{JSON.stringify(pontos)}; ;
       // Info Window Content
       var infoWindowContent = [
           ['<div class="info_content">' +
           '<h3>Faculdade Integrado</h3><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolorum totam est! Tenetur expedita odio consequuntur dolorem alias quas possimus, ducimus mollitia molestias perspiciatis libero, tempora, neque! Reiciendis, fugit, sint.</p></div>'],
           ['<div class="info_content">' +
-          '<h3>Paraná Supermercados</h3><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolorum totam est! Tenetur expedita odio consequuntur dolorem alias quas possimus, ducimus mollitia molestias perspiciatis libero, tempora, neque! Reiciendis, fugit, sint.</p></div>']
+          '<h3>Paraná Supermercados</h3><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolorum totam est! Tenetur expedita odio consequuntur dolorem alias quas possimus, ducimus mollitia molestias perspiciatis libero, tempora, neque! Reiciendis, fugit, sint.</p></div>'],
+          ['<div class="info_content">' +
+          '<h3>Casa</h3><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolorum totam est! Tenetur expedita odio consequuntur dolorem alias quas possimus, ducimus mollitia molestias perspiciatis libero, tempora, neque! Reiciendis, fugit, sint.</p></div>'],
+          ['<div class="info_content"><h3>Casa Lar paraná</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas possimus repellat voluptatum, aut est nemo et. Ipsam sit quasi laudantium vel minus vitae quam id debitis cum, incidunt. Qui, rerum!</p><p><span class="label label-primary">Aluguel</span> <span class="label label-info">Venda</span> <span class="label label-success">Novo</span></p><p>Valor: <span class="text-success">999,99</span> <br/> <button class="btn btn-primary btn-sm">Enviar proposta</button></p></div>']
       ];
           
       // Display multiple markers on a map
