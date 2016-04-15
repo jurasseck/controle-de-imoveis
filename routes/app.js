@@ -1,4 +1,5 @@
 module.exports = function(app){
+	var imovelController = require('../controllers/imovel')(app);
 
 	app.get('/',function(req,res){
 		res.render('index', {
@@ -10,6 +11,12 @@ module.exports = function(app){
 				['Casa Lar Paraná',-24.0506678,-52.399078]
 			]
 		});
+	});
+
+	app.get('/imoveis', imovelController.show);
+	app.get('/interno/imovel/novo', imovelController.novo);
+	app.post('/interno/imovel/novo', function(req,res){
+		res.json(req.body);
 	});
 
 }
