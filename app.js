@@ -19,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('./config/banco')('mongodb://localhost/imobiliaria');
+
 require('./routes/api')(app);
 require('./routes/app')(app);
 

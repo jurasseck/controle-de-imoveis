@@ -15,8 +15,6 @@ module.exports = function(app){
 
 	app.get('/imoveis', imovelController.show);
 	app.get('/interno/imovel/novo', imovelController.novo);
-	app.post('/interno/imovel/novo', function(req,res){
-		res.json(req.body);
-	});
+	app.post('/interno/imovel/novo', imovelController._save);
 
 }

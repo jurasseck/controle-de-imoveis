@@ -21,5 +21,29 @@ module.exports = function(app){
 		});
 	};
 
+	controller._save = function(req,res){
+		var body = req.body;
+		var imovel = new Imovel({
+			title: body.title,
+			description: body.description,
+			address:{
+				street: body.street,
+				number: body.numer,
+				neighborhood: body.neighborhood,
+				city: body.city,
+				latitude: body.latitude,
+				longitude: body.longitude
+			},
+			price : body.price,
+			status: true
+		});
+
+		imovel.save(function(err){
+			if (err) res.sendStatus(500);
+
+			res.redirect('/imoveis');
+		});
+	}
+
 	return controller;
 }
