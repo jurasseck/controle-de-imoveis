@@ -2,7 +2,7 @@ module.exports = function(app){
 	var imovelController = require('../controllers/imovel')(app);
 
 	app.get('/',function(req,res){
-		res.render('index', {
+		res.render('externo/map', {
 			title: 'Aluguel de imóveis',
 			pontos: [
 				['Faculdade Integrado', -24.0458588,-52.3815836],
@@ -14,7 +14,9 @@ module.exports = function(app){
 	});
 
 	app.get('/imoveis', imovelController.show);
-	app.get('/interno/imovel/novo', imovelController.novo);
-	app.post('/interno/imovel/novo', imovelController._save);
+	app.get('/interno/imoveis', imovelController.list);
+	app.get('/interno/imovel/:id', imovelController.edit);
+	app.get('/interno/imovel', imovelController.novo);
+	app.post('/interno/imovel', imovelController._save);
 
 }

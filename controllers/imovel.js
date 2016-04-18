@@ -16,10 +16,32 @@ module.exports = function(app){
 	};
 
 	controller.novo = function(req,res){
-		res.render('interno/form', {
+		res.render('interno/imovel/form', {
 			title: 'Novo imóvel'
 		});
 	};
+
+	controller.list = function(req,res){
+		Imovel.find().then(function(imoveis){
+			if (!imoveis) res.sendStatus(404);
+
+			res.render('interno/imovel/list',{
+				title: 'Listagem de imoveis',
+				imoveis: imoveis,
+			});
+		})
+	}
+
+	controller.edit = function(req,res){
+		var q = {'_id': req.params.id};
+		Imovel.findOne(q, function(err, imovel){
+			if (err) res.sendStatus(404);
+			console.log(imovel);
+			res.render('interno/imovel/form',{
+				imovel: imovel
+			});
+		})
+	}
 
 	controller._save = function(req,res){
 		var body = req.body;
@@ -43,6 +65,22 @@ module.exports = function(app){
 
 			res.redirect('/imoveis');
 		});
+	}
+
+	controller._update = function(req,res){
+
+	}
+
+	controller._delete = function(req,res){
+
+	}
+
+	controller._list = function(req,res){
+		
+	}
+
+	controller._get = function(req,res){
+
 	}
 
 	return controller;

@@ -1,6 +1,8 @@
-extends ../layout
+extends ../../layout
 block content
     .container
+        if imovel
+            pre= imovel
         h2.page-header Gerenciamento de imóvel
         form(action="", method="POST", role="form")
             input(type="hidden", name="_id", id="_id", value="").form-control

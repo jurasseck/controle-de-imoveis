@@ -1,0 +1,20 @@
+extends ../../layout
+block content
+    .container
+        pre
+            p= imoveis
+        table.table.table-hover.table-stripped
+            thead
+                tr
+                    th Imovel
+                    th Descrição
+                    th Local
+                    th #
+            tbody
+                each imovel in imoveis
+                    tr
+                        td #{imovel.title}
+                        td #{imovel.description}
+                        td
+                        td 
+                            a(href="/interno/imovel/#{imovel._id}").btn.btn-default Editar
