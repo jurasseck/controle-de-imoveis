@@ -17,4 +17,5 @@ block content
                         td #{imovel.description}
                         td
                         td 
-                            a(href="/interno/imovel/#{imovel._id}").btn.btn-default Editar
+                            a(href="/interno/imovel/#{imovel._id}").btn.btn-default.btn-sm Editar
+                            a(href="/interno/imovel/delete/#{imovel._id}" method="delete").btn.btn-danger.btn-sm Remover

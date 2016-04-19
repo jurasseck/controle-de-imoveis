@@ -1,42 +1,75 @@
 extends ../layout
 block content
     .container
-        if imovel
-            pre= imovel
         h2.page-header Gerenciamento de imóvel
         form(action="", method="POST", role="form")
-            input(type="hidden", name="_id", id="_id", value="").form-control
-            .row
-                .form-group.col-md-12
-                    label(for="title") Título
-                    input#title.form-control(type="text", placeholder="Título", name="title")
-            .row
-                .form-group.col-md-12
-                    label(for="description") Descrição
-                    textarea#description.form-control(name="description")
-            .row
-                .form-group.col-md-9
-                    label(for="street") Rua
-                    input#street.form-control(type="text", placeholder="Endereço", name="street")
-                .form-group.col-md-3
-                    label(for="number") Número
-                    input#number.form-control(type="text", placeholder="Número", name="number")
-            .row
-                .form-group.col-md-6
-                    label(for="city") Cidade
-                    input#city.form-control(type="text", placeholder="Cidade", name="city")
-                .form-group.col-md-6
-                    label(for="neighborhood") Bairro
-                    input#neighborhood.form-control(type="text", placeholder="Bairro", name="neighborhood")
-            .row
-                .form-group.col-md-6
-                    label(for="latitude") Latitude
-                    input#latitude.form-control(type="text", placeholder="Latitude", name="latitude")
-                .form-group.col-md-6
-                    label(for="longitude") Longitude
-                    input#longitude.form-control(type="text", placeholder="Longitude", name="longitude")
-            .row
-                .form-group.col-md-3
-                    label(for="price") Valor
-                    input#price.form-control(type="number", placeholder="Valor", name="price")
+            if imovel
+                input(type="hidden", name="_id", id="_id",  value="#{imovel._id}").form-control
+                .row
+                    .form-group.col-md-12
+                        label(for="title") Título
+                        input#title.form-control(type="text", placeholder="Título", name="title" value="#{imovel.title}")
+                .row
+                    .form-group.col-md-12
+                        label(for="description") Descrição
+                        textarea#description.form-control(name="description")= imovel.description
+                .row
+                    .form-group.col-md-9
+                        label(for="street") Rua
+                        input#street.form-control(type="text", placeholder="Endereço", name="street", value="#{imovel.address.street}")
+                    .form-group.col-md-3
+                        label(for="number") Número
+                        input#number.form-control(type="text", placeholder="Número", name="number", value="#{imovel.address.number}")
+                .row
+                    .form-group.col-md-6
+                        label(for="city") Cidade
+                        input#city.form-control(type="text", placeholder="Cidade", name="city", value="#{imovel.address.city}")
+                    .form-group.col-md-6
+                        label(for="neighborhood") Bairro
+                        input#neighborhood.form-control(type="text", placeholder="Bairro", name="neighborhood", value="#{imovel.address.neighborhood}")
+                .row
+                    .form-group.col-md-6
+                        label(for="latitude") Latitude
+                        input#latitude.form-control(type="text", placeholder="Latitude", name="latitude", value="#{imovel.address.latitude}")
+                    .form-group.col-md-6
+                        label(for="longitude") Longitude
+                        input#longitude.form-control(type="text", placeholder="Longitude", name="longitude", value="#{imovel.address.longitude}")
+                .row
+                    .form-group.col-md-3
+                        label(for="price") Valor
+                        input#price.form-control(type="number", placeholder="Valor", name="price", value="#{imovel.price}")
+            else
+                .row
+                    .form-group.col-md-12
+                        label(for="title") Título
+                        input#title.form-control(type="text", placeholder="Título", name="title")
+                .row
+                    .form-group.col-md-12
+                        label(for="description") Descrição
+                        textarea#description.form-control(name="description")
+                .row
+                    .form-group.col-md-9
+                        label(for="street") Rua
+                        input#street.form-control(type="text", placeholder="Endereço", name="street")
+                    .form-group.col-md-3
+                        label(for="number") Número
+                        input#number.form-control(type="text", placeholder="Número", name="number")
+                .row
+                    .form-group.col-md-6
+                        label(for="city") Cidade
+                        input#city.form-control(type="text", placeholder="Cidade", name="city")
+                    .form-group.col-md-6
+                        label(for="neighborhood") Bairro
+                        input#neighborhood.form-control(type="text", placeholder="Bairro", name="neighborhood")
+                .row
+                    .form-group.col-md-6
+                        label(for="latitude") Latitude
+                        input#latitude.form-control(type="text", placeholder="Latitude", name="latitude")
+                    .form-group.col-md-6
+                        label(for="longitude") Longitude
+                        input#longitude.form-control(type="text", placeholder="Longitude", name="longitude")
+                .row
+                    .form-group.col-md-3
+                        label(for="price") Valor
+                        input#price.form-control(type="number", placeholder="Valor", name="price")
             button.btn.btn-primary(type="submit") Salvar

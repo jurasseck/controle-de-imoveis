@@ -17,10 +17,13 @@ module.exports = function(app, passport){
 	app.get('/interno', isLoggedIn, function(req,res){
 		res.render('interno/index');
 	});
-	app.get('/interno/imoveis', imovelController.list);
-	app.get('/interno/imovel/:id', imovelController.edit);
-	app.get('/interno/imovel', imovelController.novo);
-	app.post('/interno/imovel', imovelController._save);
+	
+	app.get('/interno/imoveis', isLoggedIn, imovelController.list);
+	app.get('/interno/imovel/:id', isLoggedIn, imovelController.edit);
+	app.post('/interno/imovel/:id', isLoggedIn, imovelController._update);
+	app.get('/interno/imovel/delete/:id', isLoggedIn, imovelController._delete);
+	app.get('/interno/imovel', isLoggedIn, imovelController.novo);
+	app.post('/interno/imovel', isLoggedIn, imovelController._save);
 
 }
 

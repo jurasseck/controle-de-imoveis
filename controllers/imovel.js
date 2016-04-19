@@ -5,7 +5,7 @@ module.exports = function(app){
 
 	controller.show = function(req,res){
 		var q = {status: true};
-		Imovel.find(q, function(err, imoveis){
+		Imovel.find(q, 'title description address', function(err, imoveis){
 			if (err) res.sendStatus(500);
 
 			if (!imoveis) res.sendStatus(404);
@@ -38,7 +38,6 @@ module.exports = function(app){
 		var q = {'_id': req.params.id};
 		Imovel.findOne(q, function(err, imovel){
 			if (err) res.sendStatus(404);
-			console.log(imovel);
 			res.render('interno/imovel/form',{
 				imovel: imovel
 			});
@@ -52,7 +51,7 @@ module.exports = function(app){
 			description: body.description,
 			address:{
 				street: body.street,
-				number: body.numer,
+				number: body.number,
 				neighborhood: body.neighborhood,
 				city: body.city,
 				latitude: body.latitude,
@@ -65,16 +64,29 @@ module.exports = function(app){
 		imovel.save(function(err){
 			if (err) res.sendStatus(500);
 
-			res.redirect('/imoveis');
+			res.redirect('/interno/imoveis');
 		});
 	}
 
 	controller._update = function(req,res){
+		var imovel = req.body;
+		delete imovel._id;
+		Imovel.findByIdAndUpdate(req.params.id,{
+			$set: imovel
+		}, function(err){
+			if (err) res.sendStatus(500);
 
+			res.redirect('/interno/imoveis');
+		})
 	}
 
 	controller._delete = function(req,res){
+		var q = {_id: req.params.id};
+		Imovel.remove(q, function(err){
+			if (err) res.sendStatus(500);
 
+			res.redirect('/interno/imoveis');
+		})
 	}
 
 	controller._list = function(req,res){
