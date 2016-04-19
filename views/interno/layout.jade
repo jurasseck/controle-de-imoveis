@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Gerenciador de conteúdo
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous")
+    style.
+        body{
+            margin-top:50px;
+        }
+  body
+    nav(role="navigation").navbar.navbar-default.navbar-fixed-top
+        .navbar-header
+            button(type="button", data-toggle="collapse", data-target=".navbar-ex1-collapse").navbar-toggle.collapsed
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a(href="/interno").navbar-brand Gerenciador de conteúdo
+        .collapse.navbar-collapse.navbar-ex1-collapse
+            ul.nav.navbar-nav.navbar-right
+                //- li: a(href="#") Contato
+                li.dropdown
+                            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
+                                | Gerenciamento
+                                span.caret
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(href="/interno/imoveis") Imoveis
+                                li
+                                    a(href="#") Usuário
+    block content
+    //- footer.text-center
+    //-     p Desenvolvido por 
+    //-         a(href="mailto:luis.jurasseck@gmail.com") Luís Henrique
+    script(src="https://code.jquery.com/jquery-1.11.3.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous")
+    block scripts

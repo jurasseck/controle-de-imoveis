@@ -1,4 +1,4 @@
-extends ../../layout
+extends ../layout
 block content
     .container
         if imovel
@@ -16,8 +16,8 @@ block content
                     textarea#description.form-control(name="description")
             .row
                 .form-group.col-md-9
-                    label(for="address") Título
-                    input#address.form-control(type="text", placeholder="Endereço", name="address")
+                    label(for="street") Rua
+                    input#street.form-control(type="text", placeholder="Endereço", name="street")
                 .form-group.col-md-3
                     label(for="number") Número
                     input#number.form-control(type="text", placeholder="Número", name="number")

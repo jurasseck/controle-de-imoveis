@@ -28,6 +28,16 @@ body {
 	color: #fff !important;
 }
 
+.dropdown-menu li a {
+	background-color: #1A2F4B;
+	color: #fff !important;
+}
+
+.dropdown-menu li a:hover a:active {
+	background-color: #fff;
+	color: #1A2F4B;
+}
+
 footer {
 	padding:5px;
 	height: 40px;
