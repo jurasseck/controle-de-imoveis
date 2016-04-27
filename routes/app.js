@@ -2,8 +2,9 @@ module.exports = function(app, passport){
 	var imovelController = require('../controllers/imovel')(app);
 
 	app.get('/', imovelController.show);
-
+	app.post('/', imovelController.show);
 	app.get('/imoveis', imovelController.show);
+	app.post('/imoveis', imovelController.show);
 
 	app.get('/interno/login', function(req,res){
 		res.render('interno/login');

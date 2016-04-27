@@ -4,7 +4,19 @@ module.exports = function(app){
 	var controller = {};
 
 	controller.show = function(req,res){
-		var q = {status: true};
+		var q = {};
+		console.log(req.body);
+		var params = req.body.param || undefined;
+		if (params) {
+			// var regex = new RegExp(["^", params, "$"].join(""), "i");
+			var regex = new RegExp(params, 'i');
+			q = { $or:[ {'address.street':regex}, {'address.neighborhood':regex} ], status: true};
+		} else {
+			q = {status: true};
+		}
+
+		console.log(q);
+
 		Imovel.find(q, 'title description address', function(err, imoveis){
 			if (err) res.sendStatus(500);
 

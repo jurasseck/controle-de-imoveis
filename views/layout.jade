@@ -14,19 +14,12 @@ html
                 span.icon-bar
             a(href="/").navbar-brand= title
         .collapse.navbar-collapse.navbar-ex1-collapse
-            ul.nav.navbar-nav.navbar-right
-                li: a(href="#") Contato
-    //- nav(role="navigation").navbar.navbar-default.navbar-fixed-top
-    //-     a(href="/").navbar-brand= title
-    //-     ul.nav.navbar-nav.navbar-right
-    //-         li
-    //-             a(href="") Contato
-    //-         li
-    //-             a
+            form(action="" method="POST").navbar-form.navbar-left
+                .form-group
+                    input(type="text", placeholder="Pesquisar" name="param").form-control
+                    button(type="submit").btn.btn-default
+                        span.glyphicon.glyphicon-search
     block content
-    //- footer.text-center
-    //-     p Desenvolvido por 
-    //-         a(href="mailto:luis.jurasseck@gmail.com") Luís Henrique
     script(src="https://code.jquery.com/jquery-1.11.3.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous")
     block scripts
