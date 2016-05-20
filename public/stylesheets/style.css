@@ -14,7 +14,7 @@ body {
     height: 100%;
 }
 
-.navbar-default{
+/*.navbar-default{
 	background-color: #1A2F4B;
 	color:#fff;
 	border-bottom: 1px solid #000;
@@ -36,7 +36,7 @@ body {
 .dropdown-menu li a:hover a:active {
 	background-color: #fff;
 	color: #1A2F4B;
-}
+}*/
 
 footer {
 	padding:5px;

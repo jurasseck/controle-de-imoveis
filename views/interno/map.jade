@@ -1,4 +1,4 @@
-extends ../layout
+extends layout
 
 block content
   div#map_wrapper
@@ -44,7 +44,11 @@ block scripts
           // Allow each marker to have an info window    
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
               return function() {
-                  var conteudo = '<div class="info_content"><h3>'+imoveis[i].title+'</h3><p>'+imoveis[i].description+'</p></div>';
+                  var conteudo = '<div class="info_content"><h3>'
+                    + imoveis[i].title+ '</h3><p>'
+                    + imoveis[i].description +'</p><p class="text text-success">R$ '
+                    + imoveis[i].price+'</p><p>Corretor: '
+                    + imoveis[i].created_by+'</p></div>';
                   infoWindow.setContent(conteudo);
                   infoWindow.open(map, marker);
               }

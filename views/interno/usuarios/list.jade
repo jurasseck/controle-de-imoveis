@@ -1,0 +1,19 @@
+extends ../layout
+block content
+    .container
+        h3.page-header Usuários
+        a(href="/interno/usuario").btn.btn-primary Novo
+        table.table.table-hover.table-stripped
+            thead
+                tr
+                    th Nome
+                    th Usuário
+                    th #
+            tbody
+                each usuario in usuarios
+                    tr
+                        td #{usuario.name}
+                        td #{usuario.access.username}
+                        td 
+                            a(href="/interno/usuario/#{usuario._id}").btn.btn-default.btn-sm Editar
+                            a(href="/interno/usuario/delete/#{usuario._id}" method="delete").btn.btn-danger.btn-sm Remover

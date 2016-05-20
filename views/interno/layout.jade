@@ -3,6 +3,7 @@ html
   head
     title Gerenciador de conteúdo
     link(href="https://bootswatch.com/sandstone/bootstrap.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
     style.
         body{
             margin-top:50px;
@@ -15,19 +16,27 @@ html
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a(href="/interno").navbar-brand Gerenciador de conteúdo
+            a(href="/interno").navbar-brand Aluguel de Imóveis
         .collapse.navbar-collapse.navbar-ex1-collapse
+            form(action="/interno" method="POST").navbar-form.navbar-left
+                .form-group
+                    input(type="text", placeholder="Pesquisar" name="param").form-control
+                    button(type="submit").btn.btn-default
+                        span.glyphicon.glyphicon-search
             ul.nav.navbar-nav.navbar-right
                 //- li: a(href="#") Contato
                 li.dropdown
                             a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
-                                | Gerenciamento
+                                span= user.name
                                 span.caret
                             ul.dropdown-menu(role="menu")
                                 li
                                     a(href="/interno/imoveis") Imoveis
+                                if user.access.admin
+                                    li
+                                        a(href="/interno/usuarios") Usuários
                                 li
-                                    a(href="#") Usuário
+                                    a(href='/interno/logout') Sair
     block content
     //- footer.text-center
     //-     p Desenvolvido por 

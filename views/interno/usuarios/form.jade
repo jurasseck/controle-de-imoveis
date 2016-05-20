@@ -1,0 +1,49 @@
+extends ../layout
+block content
+    .container
+        h2.page-header Gerenciamento de usuário
+        form(action="", method="POST", role="form")
+            if usuario
+                input(type="hidden", name="_id", id="_id",  value="#{usuario._id}").form-control
+                .row
+                    .form-group.col-md-12
+                        label(for="name") Nome
+                        input#title.form-control(type="text", placeholder="Nome", name="name" value="#{usuario.name}", required="true")
+                .row
+                    .form-group.col-md-6
+                        label(for="username") Usuário
+                        input#title.form-control(type="text", placeholder="Nome", name="username" value="#{usuario.access.username}", required="true")
+                    .form-group.col-md-6
+                        label(for="password") Senha
+                        input#title.form-control(type="password", placeholder="Nome", name="password" value="#{usuario.access.password}", required="true")
+                .row
+                    .col-md-12
+                        if usuario.access.admin
+                            h4.text-success É administrador
+                        else
+                            h4.text-info Não é administrador
+            else
+                .row
+                    .form-group.col-md-12
+                        label(for="name") Nome
+                        input#title.form-control(type="text", placeholder="Nome", name="name", required="true")
+                .row
+                    .form-group.col-md-6
+                        label(for="username") Usuário
+                        input#title.form-control(type="text", placeholder="Nome", name="username", required="true")
+                    .form-group.col-md-6
+                        label(for="password") Senha
+                        input#title.form-control(type="password", placeholder="Nome", name="password", required="true")
+                .row
+                    .form-group-.col-md-4
+                        label É administrador
+                        .radio
+                            label
+                                input(type="radio", name="admin", id="admin", value="true", checked="checked")
+                                | Sim
+                        .radio
+                            label
+                                input(type="radio", name="admin", id="admin", value="false")
+                                | Não
+
+            button.btn.btn-primary(type="submit") Salvar

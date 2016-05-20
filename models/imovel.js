@@ -20,6 +20,7 @@ var imovelSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	created_by: String,
 	status: Boolean
 });
 

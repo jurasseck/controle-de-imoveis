@@ -5,7 +5,8 @@ var userSchema = new Schema({
 	name: String,
 	access: {
 		username: String,
-		password: String
+		password: String,
+		admin: Boolean
 	},
 	created_at: {
 		type: Date,

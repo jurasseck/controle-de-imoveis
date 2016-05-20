@@ -5,25 +5,22 @@ module.exports = function(app){
 
 	controller.show = function(req,res){
 		var q = {};
-		console.log(req.body);
 		var params = req.body.param || undefined;
 		if (params) {
-			// var regex = new RegExp(["^", params, "$"].join(""), "i");
 			var regex = new RegExp(params, 'i');
-			q = { $or:[ {'address.street':regex}, {'address.neighborhood':regex} ], status: true};
+			q = { $or:[ {'address.street':regex}, {'title':regex}, {'address.neighborhood':regex} ], status: true};
 		} else {
 			q = {status: true};
 		}
 
-		console.log(q);
-
-		Imovel.find(q, 'title description address', function(err, imoveis){
+		Imovel.find(q, 'title description address price created_by', function(err, imoveis){
 			if (err) res.sendStatus(500);
 
 			if (!imoveis) res.sendStatus(404);
 
-			res.render('externo/map',{
+			res.render('interno/map',{
 				title: 'Aluguel de imóveis',
+				user: req.session.passport.user,
 				imoveis: imoveis
 			});
 		});
@@ -31,6 +28,7 @@ module.exports = function(app){
 
 	controller.novo = function(req,res){
 		res.render('interno/imovel/form', {
+			user: req.session.passport.user,
 			title: 'Novo imóvel'
 		});
 	};
@@ -41,6 +39,7 @@ module.exports = function(app){
 
 			res.render('interno/imovel/list',{
 				title: 'Listagem de imoveis',
+				user: req.session.passport.user,
 				imoveis: imoveis,
 			});
 		})
@@ -51,6 +50,7 @@ module.exports = function(app){
 		Imovel.findOne(q, function(err, imovel){
 			if (err) res.sendStatus(404);
 			res.render('interno/imovel/form',{
+				user: req.session.passport.user,
 				imovel: imovel
 			});
 		})
@@ -70,6 +70,7 @@ module.exports = function(app){
 				longitude: body.longitude
 			},
 			price : body.price,
+			created_by : body.created_by,
 			status: true
 		});
 
@@ -99,14 +100,6 @@ module.exports = function(app){
 
 			res.redirect('/interno/imoveis');
 		})
-	}
-
-	controller._list = function(req,res){
-		
-	}
-
-	controller._get = function(req,res){
-
 	}
 
 	return controller;

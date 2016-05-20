@@ -8,14 +8,14 @@ block content
                 tr
                     th Imovel
                     th Descrição
-                    th Local
+                    th Corretor
                     th #
             tbody
                 each imovel in imoveis
                     tr
                         td #{imovel.title}
                         td #{imovel.description}
-                        td
+                        td #{imovel.created_by}
                         td 
                             a(href="/interno/imovel/#{imovel._id}").btn.btn-default.btn-sm Editar
                             a(href="/interno/imovel/delete/#{imovel._id}" method="delete").btn.btn-danger.btn-sm Remover
