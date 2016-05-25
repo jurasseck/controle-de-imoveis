@@ -14,30 +14,6 @@ body {
     height: 100%;
 }
 
-/*.navbar-default{
-	background-color: #1A2F4B;
-	color:#fff;
-	border-bottom: 1px solid #000;
-}
-
-.navbar li a {
-	color: #fff !important;
-}
-
-.navbar a {
-	color: #fff !important;
-}
-
-.dropdown-menu li a {
-	background-color: #1A2F4B;
-	color: #fff !important;
-}
-
-.dropdown-menu li a:hover a:active {
-	background-color: #fff;
-	color: #1A2F4B;
-}*/
-
 footer {
 	padding:5px;
 	height: 40px;

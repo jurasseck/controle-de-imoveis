@@ -29,6 +29,9 @@ block content
                         label(for="neighborhood") Bairro
                         input#neighborhood.form-control(type="text", placeholder="Bairro", name="neighborhood", value="#{imovel.address.neighborhood}",required="true")
                 .row
+                    .form-group.col-md-12
+                        button(type="button", id="pesquisar").btn.btn-info Pesquisar
+                .row
                     .form-group.col-md-6
                         label(for="latitude") Latitude
                         input#latitude.form-control(type="text", placeholder="Latitude", name="latitude", value="#{imovel.address.latitude}", required="true")
@@ -64,6 +67,9 @@ block content
                         label(for="neighborhood") Bairro
                         input#neighborhood.form-control(type="text", placeholder="Bairro", name="neighborhood", required="true")
                 .row
+                    .form-group.col-md-12
+                        button(type="button", id="pesquisar").btn.btn-info Pesquisar
+                .row
                     .form-group.col-md-6
                         label(for="latitude") Latitude
                         input#latitude.form-control(type="text", placeholder="Latitude", name="latitude", required="true")
@@ -75,3 +81,33 @@ block content
                         label(for="price") Valor
                         input#price.form-control(type="number", step="any", placeholder="Valor", name="price", required="true")
             button.btn.btn-primary(type="submit") Salvar
+block scripts
+    script().
+        jQuery(function($){
+            $('#pesquisar').click(function(event){
+                event.preventDefault();
+                var data = {
+                    address : $('#street').val(),
+                    number: $('#number').val(),
+                    neighborhood: $('#neighborhood').val(),
+                    city: $('#city').val()
+                };
+                var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+data.number+"+"+data.address+",+"+data.city;
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json'
+                }).done(function(data){
+                    if (data.status == 'OK'){
+                        coordenadas = {
+                            lat: data.results[0].geometry.location.lat,
+                            lng: data.results[0].geometry.location.lng
+                        };
+                        
+                        $('#latitude').val(coordenadas.lat);
+                        $('#longitude').val(coordenadas.lng);
+                    }
+                });
+            });
+        });
